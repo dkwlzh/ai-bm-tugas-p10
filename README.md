@@ -25,6 +25,12 @@
 
 Augmentasi apa yang membantu U-Net menemukan polip pada citra kolonoskopi, dan augmentasi apa yang tidak? Kenapa?
 
+Pada eksperimen ini, augmentasi yang digunakan meliputi horizontal flip, vertical flip, rotasi hingga 30°, serta perubahan kecerahan dan kontras. Selain itu, dilakukan pengujian kombinasi dari beberapa augmentasi tersebut. Skenario tanpa augmentasi juga digunakan sebagai pembanding.
+
+Augmentasi seperti cropping, zoom, blur, noise, dan elastic deformation tidak digunakan dalam eksperimen ini. Jenis augmentasi tersebut tidak dimasukkan karena pengujian dibatasi pada perubahan orientasi dan tampilan warna atau pencahayaan citra. Pembatasan ini juga bertujuan menjaga bentuk dan batas polip agar tidak berubah secara berlebihan sehingga tetap sesuai dengan mask segmentasinya.
+
+Catatan: Augmentasi yang tidak digunakan bukan berarti terbukti tidak membantu. Jenis tersebut memang tidak diuji dalam eksperimen ini. Sementara itu, augmentasi mana yang benar-benar membantu U-Net baru dapat ditentukan setelah membandingkan hasil Dice Score dan IoU.
+
 ## 2. Data & pengaturan
 
 - Dataset: Kvasir-SEG, terdiri dari 1.000 citra kolonoskopi beserta mask polip.
