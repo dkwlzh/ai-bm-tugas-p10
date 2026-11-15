@@ -1,16 +1,5 @@
 # Segmentasi Polip pada Citra Kolonoskopi dengan U-Net
 
-<!--
-  TEMPLATE LAPORAN — Tugas P10 Kecerdasan Buatan (BM25-41204), Teknik Biomedis ITERA.
-  Petunjuk lengkap: https://mctm.web.id/ai-bm/tugas
-
-  Cara memakai:
-  - Ganti semua teks yang diawali "✍️" dengan tulisan kelompokmu, lalu hapus tanda ✍️-nya.
-  - Blok komentar seperti ini adalah petunjuk; tidak tampil di GitHub. Boleh dihapus.
-  - Gambar diambil dari folder hasil/ yang dibuat otomatis oleh notebook.
-  - Jangan hapus judul-judul bagian (##).
--->
-
 **Tugas P10 — Kecerdasan Buatan (BM25-41204), Teknik Biomedis ITERA**
 
 ## Anggota kelompok
@@ -76,34 +65,44 @@ Contoh augmentasi yang dicoba:
 
 ## 5. Analisis peta kesalahan
 
-![Peta kesalahan](hasil/peta_kesalahan.png)
+![Peta kesalahan](https://colab.research.google.com/github/dkwlzh/ai-bm-tugas-p10/blob/main/segmentasi_polip.ipynb#scrollTo=0b460587&fullscreenOutput=true)
 
-<!-- Hijau = benar, merah = false positive, biru = false negative.
-     Pertanyaan pemandu: Polip seperti apa yang sering terlewat (kecil? datar? warna mirip dinding usus?)
-     Apa yang sering dikira polip padahal bukan? Apakah augmentasi memperbaiki kasus sulit? -->
+Berdasarkan peta kesalahan, hasil segmentasi U-Net menunjukkan perbedaan pada setiap sampel dan skenario augmentasi. Warna hijau menunjukkan bagian polip yang berhasil diprediksi dengan benar, merah menunjukkan false positive (bagian yang salah diprediksi sebagai polip), sedangkan biru menunjukkan false negative (bagian polip yang tidak berhasil terdeteksi).
 
-✍️
+1. Polip yang sering terlewat (False Negative/Biru)
+   Pada sampel pertama dan kedua, terlihat masih terdapat bagian polip yang tidak terdeteksi oleh model, ditandai dengan warna biru. Hal ini menunjukkan bahwa model belum mampu mengenali seluruh area polip dengan baik. Sebaliknya, pada sampel ketiga dan keempat, hasil segmentasi lebih sesuai dengan mask dari dokter sehingga area biru yang muncul relatif sedikit.
+
+2. Objek yang sering dikira polip (False Positive/Merah)
+   Kesalahan false positive paling terlihat pada sampel pertama dan kedua. Area berwarna merah cukup luas dan tidak sesuai dengan area polip pada jawaban dokter. Hal ini menunjukkan bahwa model masih kesulitan membedakan polip dengan bagian lain pada citra kolonoskopi. Sementara itu, pada sampel ketiga dan keempat, area merah jauh lebih sedikit sehingga hasil segmentasinya lebih mendekati mask sebenarnya.
+
+3. Apakah augmentasi memperbaiki kasus sulit?
+   Hasil peta kesalahan menunjukkan bahwa augmentasi belum memberikan perbaikan yang konsisten. Pada sampel pertama, rotasi dan kombinasi lengkap memperoleh Dice 0,12, lebih baik dibandingkan tanpa augmentasi dan flip yang memperoleh Dice 0,00. Namun, pada sampel kedua, seluruh skenario masih menghasilkan Dice yang sangat rendah. Pada sampel ketiga, flip memperoleh Dice tertinggi sebesar 0,92, sedangkan pada sampel keempat tanpa augmentasi dan flip memperoleh Dice 0,97.
+
+Dari hasil tersebut, flip terlihat memberikan hasil yang cukup baik pada beberapa sampel, tetapi belum mampu memperbaiki seluruh kasus sulit. Hal ini menunjukkan bahwa pengaruh augmentasi berbeda-beda tergantung karakteristik citra polip yang digunakan.
 
 ## 6. Pembahasan & kesimpulan
 
-<!-- Bandingkan hasil dengan hipotesis di Bagian 3. Hipotesis yang ternyata salah tetap bernilai,
-     asalkan dijelaskan kenapa. Perbedaan kecil (lebih kecil dari simpangan baku) belum tentu berarti. -->
-
-✍️
-
+A. Pembahasan
+    Hasil eksperimen menunjukkan bahwa penggunaan augmentasi belum tentu meningkatkan kemampuan U-Net dalam melakukan segmentasi polip. Skenario tanpa augmentasi memperoleh nilai Dice tertinggi sebesar 0,405 dan IoU sebesar 0,285. Sementara itu, skenario flip memperoleh Dice 0,381, rotasi 0,360, kecerahan dan kontras 0,331, serta kombinasi lengkap 0,334. Pada skenario flip dan rotasi, nilai Dice mengalami penurunan dibandingkan tanpa augmentasi. Padahal, kedua augmentasi tersebut diperkirakan dapat membantu model mengenali polip dari berbagai posisi dan orientasi. Hal ini menunjukkan bahwa penambahan variasi posisi citra belum tentu memberikan hasil yang lebih baik pada model yang digunakan. Augmentasi kecerahan dan kontras memperoleh nilai Dice paling rendah, yaitu 0,331. Perubahan intensitas warna dan pencahayaan kemungkinan memengaruhi karakteristik visual polip sehingga model lebih sulit membedakannya dari jaringan di sekitarnya. Sementara itu, kombinasi lengkap memperoleh Dice 0,334. Hasil ini menunjukkan bahwa penggabungan beberapa augmentasi belum tentu menghasilkan peningkatan performa.
+    Secara keseluruhan, hasil pengujian tidak sesuai dengan hipotesis awal yang memperkirakan bahwa seluruh augmentasi dapat meningkatkan nilai Dice. Hal ini menunjukkan bahwa setiap jenis augmentasi memberikan pengaruh yang berbeda terhadap proses pembelajaran model. Oleh karena itu, pemilihan augmentasi perlu mempertimbangkan karakteristik citra dan hasil pengujian yang diperoleh.
+    
+B. Kesimpulan
+    1. Skenario tanpa augmentasi memberikan hasil terbaik dengan Dice 0,405 dan IoU 0,285 dibandingkan seluruh skenario augmentasi yang diuji.
+    2. Augmentasi flip dan rotasi belum mampu meningkatkan hasil segmentasi, meskipun keduanya bertujuan memberikan variasi posisi dan orientasi citra.
+    3. Kecerahan dan kontras memperoleh hasil terendah dengan Dice 0,331. Kombinasi lengkap juga belum memberikan peningkatan performa.
+    4. Hipotesis awal bahwa augmentasi dapat meningkatkan hasil segmentasi belum terbukti pada eksperimen ini. Dengan demikian, penggunaan augmentasi perlu              disesuaikan dengan karakteristik data dan diuji terlebih dahulu sebelum diterapkan.
+   
 ## 7. Pembagian kerja
 
-<!-- Siapa mengerjakan apa. Penilaian proses kerja dilihat dari riwayat commit tiap anggota. -->
-
-✍️
+Nahdatul Azizah Putri	: Konfigurasi lingkungan, pengunduhan dan pemeriksaan dataset, perbandingan nilai Dice dan IoU, serta penyusunan README.md.
+Indah Nabila Putri. T	: Pelaksanaan dan pengamatan hasil eksperimen, serta analisis hasil augmentasi, serta penyusunan README.md.
+Erni Afriyanti Hulu   :	Pengaturan eksperimen, membantu proses pengujian pada Google Colab, dan dokumentasi hasil eksperimen.
 
 ## 8. Penggunaan AI
 
-<!-- Wajib diisi, walau tidak memakai AI (tulis "Tidak memakai AI").
-     Contoh: "Claude Code (CLI) untuk menulis skenario augmentasi dan memperbaiki error di Bagian 4.
-     Draf Bagian 6 ditulis sendiri, lalu dirapikan bahasanya dengan bantuan AI." -->
-
-✍️
+- ChatGPT digunakan untuk membantu menyusun dan memperbaiki bahasa pada bagian analisis, pembahasan, serta kesimpulan hasil eksperimen.
+- Gemini dimanfaatkan untuk membantu memperbaiki kode pada proses segmentasi citra.
+- Copilot digunakan untuk membantu mengatasi kendala saat melakukan git pull serta menyinkronkan pembaruan repository terbaru ke repository lokal.
 
 ## Cara menjalankan ulang
 
@@ -118,4 +117,6 @@ Atau buka notebook di Google Colab (Runtime → Change runtime type → T4 GPU).
 
 - Jha, D., dkk. (2020). Kvasir-SEG: A Segmented Polyp Dataset. *MultiMedia Modeling (MMM 2020)*, 451–462.
 - Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation. *MICCAI*. arXiv:1505.04597.
-- ✍️ tambahkan referensi lain yang kalian pakai
+- M. F. Ahamed, M. R. Islam, M. Nahiduzzaman, M. E. H. Chowdhury, A. Alqahtani, and M. Murugappan, “Automated Colorectal Polyps Detection from Endoscopic Images    using MultiResUNet Framework with Attention Guided Segmentation,” Human-Centric Intelligent Systems 2024 4:2, vol. 4, no. 2, pp. 299–315, Apr. 2024, doi:         10.1007/S44230-024-00067-1.
+- X. He, “A multi-resolution unet algorithm based on data augmentation and multi-center training for polyp automatic segmentation,” Journal of Intelligent and      Fuzzy Systems, vol. 44, no. 3, pp. 4593–4604, 2023, doi: 10.3233/JIFS-223340;WGROUP:STRING:PUBLICATION.
+
