@@ -6,9 +6,9 @@
 
 | Nama | NIM | Username GitHub | Kontribusi utama |
 |---|---|---|---|
-| Nahdatul Azizah Putri | 123430006 | dkwlzh | Persiapan proyek dan repository GitHub, konfigurasi Python dan Jupyter Notebook, serta pengunduhan dan pemeriksaan dataset Kvasir-SEG yang berisi 1.000 citra kolonoskopi beserta mask polip. Pengerjaan notebook mencakup perumusan pertanyaan penelitian, pengisian data dan pengaturan eksperimen, serta penentuan skenario augmentasi dan hipotesis pengaruhnya terhadap hasil segmentasi polip. Selain itu, turut menyusun dan merapikan laporan dalam README.md untuk mendokumentasikan pelaksanaan dan hasil tugas. |
-| Indah Nabila Putri. T | 123430047 | indh992 | ✍️ |
-| Erni Afriyanti Hulu | 123430067 | erni123430067-afk | ✍️ |
+| Nahdatul Azizah Putri | 123430006 | dkwlzh | Bertanggung jawab dalam melakukan konfigurasi lingkungan kerja, mulai dari persiapan Python dan Jupyter Notebook. Selain itu, melakukan pengunduhan dan pemeriksaan dataset Kvasir-SEG, membandingkan hasil eksperimen berdasarkan nilai Dice Score dan IoU pada setiap skenario augmentasi, serta membantu menyusun dan merapikan README.md. |
+| Indah Nabila Putri. T | 123430047 | indh992 | Bertanggung jawab dalam pelaksanaan dan pengamatan hasil eksperimen segmentasi menggunakan model U-Net. Selain itu, melakukan analisis terhadap hasil setiap skenario augmentasi, mengamati perbedaan hasil segmentasi melalui peta kesalahan, serta membantu menyusun bagian pembahasan dan kesimpulan pada README.md. |
+| Erni Afriyanti Hulu | 123430067 | erni123430067-afk | Bertanggung jawab dalam membantu pengaturan skenario eksperimen dan proses pengujian model menggunakan Google Colab. Selain itu, membantu memantau proses pelatihan, mendokumentasikan hasil dari setiap skenario augmentasi, serta mengumpulkan hasil pengujian sebagai bahan evaluasi dan penyusunan laporan. |
 
 ## 1. Pertanyaan
 
@@ -94,9 +94,9 @@ B. Kesimpulan
    
 ## 7. Pembagian kerja
 
-Nahdatul Azizah Putri	: Konfigurasi lingkungan, pengunduhan dan pemeriksaan dataset, perbandingan nilai Dice dan IoU, serta penyusunan README.md.
-Indah Nabila Putri. T	: Pelaksanaan dan pengamatan hasil eksperimen, serta analisis hasil augmentasi, serta penyusunan README.md.
-Erni Afriyanti Hulu   :	Pengaturan eksperimen, membantu proses pengujian pada Google Colab, dan dokumentasi hasil eksperimen.
+- Nahdatul Azizah Putri	: Konfigurasi lingkungan, pengunduhan dan pemeriksaan dataset, perbandingan nilai Dice dan IoU, serta penyusunan README.md.
+- Indah Nabila Putri. T	: Pelaksanaan dan pengamatan hasil eksperimen, serta analisis hasil augmentasi, serta penyusunan README.md.
+- Erni Afriyanti Hulu   :	Pengaturan eksperimen, membantu proses pengujian pada Google Colab, dan dokumentasi hasil eksperimen.
 
 ## 8. Penggunaan AI
 
