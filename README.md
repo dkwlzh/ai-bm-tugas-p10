@@ -27,25 +27,30 @@ Augmentasi apa yang membantu U-Net menemukan polip pada citra kolonoskopi, dan a
 
 ## 2. Data & pengaturan
 
-<!-- Isi dari Bagian 2 notebook. Pastikan CEPAT = False untuk hasil akhir. -->
-
-- Dataset: Kvasir-SEG (1000 citra kolonoskopi + mask polip), diperkecil ke 128 × 128 piksel.
-- Data uji: 200 citra (tetap). Data latih: ✍️ citra per ulangan.
-- Model: U-Net mini (±0,5 juta parameter), ✍️ epoch, ✍️ ulangan per skenario.
-- Dijalankan di: ✍️ (misal: Google Colab T4 / laptop CPU / Mac M1).
+- Dataset: Kvasir-SEG, terdiri dari 1.000 citra kolonoskopi beserta mask polip.
+- Ukuran citra: 128 × 128 piksel.
+- Data uji: 200 citra.
+- Kumpulan data latih: 800 citra.
+- Data latih yang digunakan: 400 citra per ulangan.
+- Model: U-Net Mini dengan sekitar 0,5 juta parameter.
+- Epoch: 10.
+- Ulangan: 3 kali per skenario.
+- Perangkat: Laptop dengan CPU.
+- Framework: PyTorch 2.15.0+cpu.
 
 ![Contoh data](hasil/contoh_data.png)
 
 ## 3. Skenario augmentasi & hipotesis
 
-<!-- Tulis bagian ini SEBELUM menjalankan eksperimen. Commit dulu, baru jalankan.
-     Alasan klinis = kenapa variasi ini mungkin (atau tidak mungkin) terjadi pada kolonoskopi sungguhan. -->
-
 | Skenario | Augmentasi (kode) | Alasan klinis | Hipotesis: Dice naik/turun/sama? |
 |---|---|---|---|
 | Tanpa augmentasi | — | Pembanding | — |
-| ✍️ | ✍️ `v2....` | ✍️ | ✍️ |
-| ✍️ | ✍️ `v2....` | ✍️ | ✍️ |
+| Flip | RandomHorizontalFlip, RandomVerticalFlip |	Posisi dan orientasi polip dapat berbeda pada setiap pengambilan citra kolonoskopi. |	Naik |
+| Rotasi |	RandomRotation(degrees=30) |	Posisi kamera dan arah pengambilan citra dapat menyebabkan perbedaan orientasi polip. |	Naik |
+| Kecerahan dan kontras |	ColorJitter(brightness=0.3, contrast=0.3)	| Pencahayaan dan kontras citra dapat berubah akibat kondisi pengambilan gambar. |	Naik |
+| Kombinasi	| Flip, rotasi, kecerahan, dan kontras |	Menggabungkan beberapa variasi citra untuk meningkatkan keberagaman data pelatihan. |	Naik |
+
+Hipotesis tersebut merupakan perkiraan sebelum eksperimen dilakukan. Hasil sebenarnya dapat berbeda karena setiap augmentasi memberikan perubahan karakteristik citra yang berbeda.
 
 Contoh augmentasi yang dicoba:
 
