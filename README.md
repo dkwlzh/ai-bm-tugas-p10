@@ -65,7 +65,7 @@ Contoh augmentasi yang dicoba:
 
 ## 5. Analisis peta kesalahan
 
-![Peta kesalahan](https://colab.research.google.com/github/dkwlzh/ai-bm-tugas-p10/blob/main/segmentasi_polip.ipynb#scrollTo=0b460587&fullscreenOutput=true)
+<img width="2000" height="1194" alt="image" src="https://github.com/user-attachments/assets/cf836ae8-ee74-46c3-aaea-e306658ad8d3" />
 
 Berdasarkan peta kesalahan, hasil segmentasi U-Net menunjukkan perbedaan pada setiap sampel dan skenario augmentasi. Warna hijau menunjukkan bagian polip yang berhasil diprediksi dengan benar, merah menunjukkan false positive (bagian yang salah diprediksi sebagai polip), sedangkan biru menunjukkan false negative (bagian polip yang tidak berhasil terdeteksi).
 
