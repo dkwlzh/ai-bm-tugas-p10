@@ -17,9 +17,9 @@
 
 | Nama | NIM | Username GitHub | Kontribusi utama |
 |---|---|---|---|
-| Nahdatul Azizah Putri | 123430006 | dkwlzh | persiapan proyek dan repository GitHub, konfigurasi Python dan Jupyter Notebook, serta pengunduhan dan pemeriksaan dataset Kvasir-SEG yang berisi 1.000 citra kolonoskopi beserta mask polip. Pengerjaan notebook mencakup perumusan pertanyaan penelitian, pengisian data dan pengaturan eksperimen, serta penentuan skenario augmentasi dan hipotesis pengaruhnya terhadap hasil segmentasi polip|
+| Nahdatul Azizah Putri | 123430006 | dkwlzh | Persiapan proyek dan repository GitHub, konfigurasi Python dan Jupyter Notebook, serta pengunduhan dan pemeriksaan dataset Kvasir-SEG yang berisi 1.000 citra kolonoskopi beserta mask polip. Pengerjaan notebook mencakup perumusan pertanyaan penelitian, pengisian data dan pengaturan eksperimen, serta penentuan skenario augmentasi dan hipotesis pengaruhnya terhadap hasil segmentasi polip. Selain itu, turut menyusun dan merapikan laporan dalam README.md untuk mendokumentasikan pelaksanaan dan hasil tugas. |
 | ✍️ | ✍️ | ✍️ | ✍️ |
-| ✍️ | ✍️ | ✍️ | ✍️ |
+| Erni Afriyanti Hulu | 123430067 | ✍️ | ✍️ |
 
 ## 1. Pertanyaan
 
