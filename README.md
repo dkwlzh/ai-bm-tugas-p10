@@ -19,7 +19,7 @@
 |---|---|---|---|
 | Nahdatul Azizah Putri | 123430006 | dkwlzh | Persiapan proyek dan repository GitHub, konfigurasi Python dan Jupyter Notebook, serta pengunduhan dan pemeriksaan dataset Kvasir-SEG yang berisi 1.000 citra kolonoskopi beserta mask polip. Pengerjaan notebook mencakup perumusan pertanyaan penelitian, pengisian data dan pengaturan eksperimen, serta penentuan skenario augmentasi dan hipotesis pengaruhnya terhadap hasil segmentasi polip. Selain itu, turut menyusun dan merapikan laporan dalam README.md untuk mendokumentasikan pelaksanaan dan hasil tugas. |
 | Indah Nabila Putri. T | 123430047 | indh992 | ✍️ |
-| Erni Afriyanti Hulu | 123430067 | ✍️ | ✍️ |
+| Erni Afriyanti Hulu | 123430067 | erni123430067-afk | ✍️ |
 
 ## 1. Pertanyaan
 
@@ -37,7 +37,6 @@ Catatan: Augmentasi yang tidak digunakan bukan berarti terbukti tidak membantu. 
 - Ukuran citra: 128 × 128 piksel.
 - Data uji: 200 citra.
 - Kumpulan data latih: 800 citra.
-- Model: U-Net Mini dengan sekitar 0,5 juta parameter.
 - Epoch: 50.
 - Ulangan: 3 kali per skenario.
 - Dijalankan di:  Google Colab T4.
