@@ -87,10 +87,10 @@ A. Pembahasan
     Secara keseluruhan, hasil pengujian tidak sesuai dengan hipotesis awal yang memperkirakan bahwa seluruh augmentasi dapat meningkatkan nilai Dice. Hal ini menunjukkan bahwa setiap jenis augmentasi memberikan pengaruh yang berbeda terhadap proses pembelajaran model. Oleh karena itu, pemilihan augmentasi perlu mempertimbangkan karakteristik citra dan hasil pengujian yang diperoleh.
     
 B. Kesimpulan
-    1. Skenario tanpa augmentasi memberikan hasil terbaik dengan Dice 0,405 dan IoU 0,285 dibandingkan seluruh skenario augmentasi yang diuji.
-    2. Augmentasi flip dan rotasi belum mampu meningkatkan hasil segmentasi, meskipun keduanya bertujuan memberikan variasi posisi dan orientasi citra.
-    3. Kecerahan dan kontras memperoleh hasil terendah dengan Dice 0,331. Kombinasi lengkap juga belum memberikan peningkatan performa.
-    4. Hipotesis awal bahwa augmentasi dapat meningkatkan hasil segmentasi belum terbukti pada eksperimen ini. Dengan demikian, penggunaan augmentasi perlu              disesuaikan dengan karakteristik data dan diuji terlebih dahulu sebelum diterapkan.
+- Skenario tanpa augmentasi memberikan hasil terbaik dengan Dice 0,405 dan IoU 0,285 dibandingkan seluruh skenario augmentasi yang diuji.
+- Augmentasi flip dan rotasi belum mampu meningkatkan hasil segmentasi, meskipun keduanya bertujuan memberikan variasi posisi dan orientasi citra.
+- Kecerahan dan kontras memperoleh hasil terendah dengan Dice 0,331. Kombinasi lengkap juga belum memberikan peningkatan performa.
+- Hipotesis awal bahwa augmentasi dapat meningkatkan hasil segmentasi belum terbukti pada eksperimen ini. Dengan demikian, penggunaan augmentasi perlu              disesuaikan dengan karakteristik data dan diuji terlebih dahulu sebelum diterapkan.
    
 ## 7. Pembagian kerja
 
