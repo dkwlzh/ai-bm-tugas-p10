@@ -37,14 +37,13 @@ Catatan: Augmentasi yang tidak digunakan bukan berarti terbukti tidak membantu. 
 - Ukuran citra: 128 × 128 piksel.
 - Data uji: 200 citra.
 - Kumpulan data latih: 800 citra.
-- Data latih yang digunakan: 400 citra per ulangan.
 - Model: U-Net Mini dengan sekitar 0,5 juta parameter.
-- Epoch: 10.
+- Epoch: 50.
 - Ulangan: 3 kali per skenario.
-- Perangkat: Laptop dengan CPU.
-- Framework: PyTorch 2.15.0+cpu.
+- Dijalankan di:  Google Colab T4.
 
-![Contoh data](hasil/contoh_data.png)
+<img width="1587" height="671" alt="image" src="https://github.com/user-attachments/assets/97d6013f-07bf-4fb3-aec7-9fca5b68d22a" />
+
 
 ## 3. Skenario augmentasi & hipotesis
 
@@ -60,16 +59,21 @@ Hipotesis tersebut merupakan perkiraan sebelum eksperimen dilakukan. Hasil seben
 
 Contoh augmentasi yang dicoba:
 
-![Contoh augmentasi](hasil/augmentasi_flip.png)
-<!-- Ganti nama file sesuai skenario kalian (lihat isi folder hasil/). -->
+<img width="1690" height="305" alt="image" src="https://github.com/user-attachments/assets/6c729ad1-c405-408f-a0c5-190e76e9b875" />
+
 
 ## 4. Hasil
 
-<!-- Tempel isi hasil/ringkasan.md di sini. -->
+| Skenario | Dice (rata-rata ± sb) | IoU (rata-rata ± sb) | Dice tiap ulangan |
+|---|---|---|---|
+| Tanpa augmentasi | 0.405 ± 0.000 | 0.285 ± 0.000 | 0.405 |
+| Flip | 0.381 ± 0.000 | 0.263 ± 0.000 | 0.381 |
+| Rotasi 30 derajat | 0.360 ± 0.000 | 0.244 ± 0.000 | 0.360 |
+| Kecerahan & kontras | 0.331 ± 0.000 | 0.220 ± 0.000 | 0.331 |
+| Kombinasi lengkap | 0.334 ± 0.000 | 0.222 ± 0.000 | 0.334 |
 
-✍️ tempel tabel dari `hasil/ringkasan.md`
+<img width="1089" height="409" alt="image" src="https://github.com/user-attachments/assets/d7c35de8-76c3-4037-ad93-ff223dcd1e1b" />
 
-![Perbandingan Dice](hasil/perbandingan.png)
 
 ## 5. Analisis peta kesalahan
 
